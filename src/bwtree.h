@@ -64,11 +64,6 @@ using NodeID = uint64_t;
 #define likely(x)   __builtin_expect(!!(x), 1)
 #define unlikely(x) __builtin_expect(!!(x), 0)
 
-#include "sorted_small_set.h"
-#include "bloom_filter.h"
-#include "atomic_stack.h"
-#include "mapping_table.h"
-
 // We use this to control from the compiler
 #ifndef BWTREE_NODEBUG
 /*
@@ -177,6 +172,12 @@ extern bool print_flag;
                                                         &node_p->GetLowKeyPair(), \
                                                         sizeof(T)) \
                                                     ) T{__VA_ARGS__} ))
+
+// The following must be put after all macro definition
+#include "sorted_small_set.h"
+#include "bloom_filter.h"
+#include "atomic_stack.h"
+#include "mapping_table.h"
 
 /*
  * class BwTree - Lock-free BwTree index implementation
