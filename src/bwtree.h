@@ -59,14 +59,15 @@
 // This must be declared before all include directives
 using NodeID = uint64_t;
 
-#include "sorted_small_set.h"
-#include "bloom_filter.h"
-#include "atomic_stack.h"
-
 // Copied from Linux kernel code to facilitate branch prediction unit on CPU
 // if there is one
 #define likely(x)   __builtin_expect(!!(x), 1)
 #define unlikely(x) __builtin_expect(!!(x), 0)
+
+#include "sorted_small_set.h"
+#include "bloom_filter.h"
+#include "atomic_stack.h"
+#include "mapping_table.h"
 
 // We use this to control from the compiler
 #ifndef BWTREE_NODEBUG
