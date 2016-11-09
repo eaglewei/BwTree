@@ -58,6 +58,8 @@ class MappingTable {
               "ERROR: mmap() returns -1; reason = \"%s\"\n", 
               strerror(errno));
       exit(1);
+    } else {
+      bwt_printf("Mapping table mmap() = %p\n", p); 
     }
 
     // If mmap() succeeds just use the returned mapping table
@@ -67,6 +69,13 @@ class MappingTable {
     next_node_id.store(FIRST_NODE_ID);
     
     return;
+  }
+  
+  /*
+   * Destructor - Unmaps memory
+   */
+  ~MappingTable() {
+    
   }
 };
 
