@@ -177,7 +177,7 @@ extern bool print_flag;
 #include "sorted_small_set.h"
 #include "bloom_filter.h"
 #include "atomic_stack.h"
-#include "mapping_table.h"
+//#include "mapping_table.h"
 
 /*
  * class BwTree - Lock-free BwTree index implementation
